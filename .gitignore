@@ -17,9 +17,6 @@ backend/executive_summary_agent.py
 backend/negotiation_agent.py
 backend/playbook_agent.py
 backend/planner.py
-backend/retrieval.py
-backend/graph.py
-backend/eval_pipeline.py
 
 # Python Cache
 backend/__pycache__/
