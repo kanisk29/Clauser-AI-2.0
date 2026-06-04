@@ -9,8 +9,3 @@ backend/**/*.pyc
 .idea/
 
 
-
-backend/compliance_agent.py
-backend/negotiation_agent.py
-backend/playbook_agent.py
-backend/executive_summary_agent.py
