@@ -1,0 +1,29 @@
+# Backend Virtual Environment
+backend/venv/
+
+# Environment Variables
+backend/.env
+
+# Chroma DB
+backend/db/
+
+# Python Cache
+backend/__pycache__/
+backend/**/*.pyc
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Logs
+*.log
+
+# Build
+dist/
+build/
+
+# OS Files
+.DS_Store
+Thumbs.db
