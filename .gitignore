@@ -8,13 +8,7 @@ backend/**/*.pyc
 .vscode/
 .idea/
 
-*.log
 
-dist/
-build/
-
-.DS_Store
-Thumbs.db
 
 backend/compliance_agent.py
 backend/negotiation_agent.py
