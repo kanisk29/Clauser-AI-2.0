@@ -1,11 +1,39 @@
-backend/venv/
+# Secrets
 backend/.env
+backend/.env.*
+
+# Virtual Environment
+backend/venv/
+backend/.venv/
+
+# Database
 backend/db/
+*.db
+*.sqlite3
 
+# Agent implementations
+backend/compliance_agent.py
+backend/executive_summary_agent.py
+backend/negotiation_agent.py
+backend/playbook_agent.py
+backend/planner.py
+backend/retrieval.py
+backend/graph.py
+backend/eval_pipeline.py
+
+# Python Cache
 backend/__pycache__/
-backend/**/*.pyc
+**/__pycache__/
+*.pyc
+*.pyo
 
+# Logs
+*.log
+
+# IDE
 .vscode/
 .idea/
 
-
+# OS
+.DS_Store
+Thumbs.db

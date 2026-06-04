@@ -52,7 +52,7 @@ form.addEventListener("submit", async (e) => {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:8000/analyze",
+            "https://kanisk29-clauser-ai-backend.hf.space/analyze",
             {
                 method: "POST",
                 body: formData
@@ -88,14 +88,13 @@ form.addEventListener("submit", async (e) => {
     }
 });
 
-
 function renderResults(data) {
 
     renderHealthScore(data);
 
-    renderExecutiveSummary(data);
+    renderMetrics(data);
 
-    renderPlanner(data);
+    renderExecutiveSummary(data);
 
     renderPlaybook(data);
 
@@ -105,7 +104,6 @@ function renderResults(data) {
 
     renderRisks(data);
 }
-
 
 function renderHealthScore(data) {
 
@@ -151,42 +149,28 @@ function renderExecutiveSummary(data) {
     `;
 }
 
+function renderMetrics(data) {
 
-function renderPlanner(data) {
+    const risks = data.risks || [];
 
-    const plan = data.plan;
+    const highRisks = risks.filter(
+        r => r.risk_level?.toLowerCase() === "high"
+    ).length;
 
     document.getElementById(
-        "plannerOutput"
-    ).innerHTML = `
+        "highRiskCount"
+    ).innerText = highRisks;
 
-        <div class="agent-card">
+    document.getElementById(
+        "complianceCount"
+    ).innerText =
+        (data.compliance || []).length;
 
-            <div class="agent-title">
-                Agent Workflow Plan
-            </div>
-
-            <p>
-                <strong>Contract Type:</strong>
-                ${plan.contract_type || "-"}
-            </p>
-
-            <p>
-                <strong>Main Intent:</strong>
-                ${plan.main_intent || "-"}
-            </p>
-
-            <p>
-                <strong>Retrieval Required:</strong>
-                ${plan.retrieval_required}
-            </p>
-
-        </div>
-
-    `;
+    document.getElementById(
+        "negotiationCount"
+    ).innerText =
+        (data.negotiations || []).length;
 }
-
-
 function renderPlaybook(data) {
 
     const container =
